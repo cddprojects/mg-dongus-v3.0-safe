@@ -614,8 +614,8 @@
     .sr-only { position: absolute; left: -9999px; }
   </style>
 
-  <link rel="stylesheet" href="assets/whatsapp-popup.css?v=20260820-2">
-  <script src="assets/whatsapp-popup.js?v=20260820-2" defer></script>
+  <!-- <link rel="stylesheet" href="assets/whatsapp-popup.css?v=20260820-2">
+  <script src="assets/whatsapp-popup.js?v=20260820-2" defer></script> -->
 </head>
 <body>
 
@@ -695,7 +695,7 @@
       </ul>
 
       <div class="hero-ctas">
-        <a id="waf1" class="btn btn-wa btn-sm" href="https://wa.me/17202322867?text=Hi%2C%20I%27d%20like%20to%20join%20the%20free%20The%20Daily%20Watchlist%20daily%20market%20analysis%20group." target="_blank" rel="noopener noreferrer" onclick="typeof tdw!=='undefined'&&tdw.track('hero_wa_cta')" aria-label="Get the brief on WhatsApp">
+        <a id="waf1" class="btn btn-wa btn-sm" href="/api/go-whatsapp.php" target="_blank" rel="noopener noreferrer">
           <svg class="wa-icon" aria-hidden="true"><use href="#icon-wa"/></svg>Get the Brief
         </a>
         <a href="#watchlist" class="btn btn-outline">Preview Today's Brief</a>
@@ -856,7 +856,7 @@
 
     <div class="brief-gate reveal">
       <p>The complete brief on all three names is published in the group at 9:00 AM ET every trading day.</p>
-      <a id="waf1" class="btn btn-wa btn-sm" href="https://wa.me/17202322867?text=Hi%2C%20I%27d%20like%20to%20join%20the%20free%20The%20Daily%20Watchlist%20daily%20market%20analysis%20group." target="_blank" rel="noopener noreferrer" onclick="typeof tdw!=='undefined'&&tdw.track('brief_wa_cta')" aria-label="Get the brief on WhatsApp">
+      <a id="waf1" class="btn btn-wa btn-sm" href="/api/go-whatsapp.php" target="_blank" rel="noopener noreferrer"">
         <svg class="wa-icon" aria-hidden="true"><use href="#icon-wa"/></svg>Get the Brief
       </a>
     </div>
@@ -1097,7 +1097,7 @@
     </div>
     <h2 id="final-cta-h2" class="reveal">The daily pre-market research brief.</h2>
     <p class="reveal">Published at 9:00 AM ET each trading day, 30 minutes before the NYSE open.</p>
-    <a id="waf1" class="btn btn-wa btn-sm" href="https://wa.me/17202322867?text=Hi%2C%20I%27d%20like%20to%20join%20the%20free%20The%20Daily%20Watchlist%20daily%20market%20analysis%20group." target="_blank" rel="noopener noreferrer" onclick="typeof tdw!=='undefined'&&tdw.track('final_wa_cta')" aria-label="Get the brief on WhatsApp">
+    <a id="waf1" class="btn btn-wa btn-sm" href="/api/go-whatsapp.php" target="_blank" rel="noopener noreferrer">
       <svg class="wa-icon" aria-hidden="true"><use href="#icon-wa"/></svg>Get the Brief
     </a>
     <div class="cta-reassurance reveal">
@@ -1391,5 +1391,53 @@ function renderScoreboard(history) {
 </svg>
 
 <script src="components.js?v=20260820-4"></script>
+<script>
+(function () {
+
+    const params =
+        new URLSearchParams(
+            window.location.search
+        );
+
+
+    fetch(
+        '/f3/api/track-visitor.php',
+        {
+
+            method: 'POST',
+
+            credentials: 'same-origin',
+
+            headers: {
+                'Content-Type': 'application/json'
+            },
+
+            keepalive: true,
+
+            body: JSON.stringify({
+
+                page_url:
+                    window.location.href,
+
+                referrer:
+                    document.referrer || null,
+
+                utm_source:
+                    params.get('utm_source'),
+
+                utm_medium:
+                    params.get('utm_medium'),
+
+                utm_campaign:
+                    params.get('utm_campaign')
+
+            })
+
+        }
+    )
+    .catch(function () {});
+
+})();
+</script>
 </body>
 </html>
