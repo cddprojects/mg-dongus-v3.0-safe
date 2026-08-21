@@ -30,7 +30,7 @@ if (
             0,
 
         'path' =>
-            '/new/',
+            '/f3/',
 
         'secure' =>
             true,
@@ -64,7 +64,7 @@ $baseDir =
 $config =
     require
         $baseDir .
-        '/private/new/visitor-secrets.php';
+        '/private/f3/visitor-secrets.php';
 
 
 /*
