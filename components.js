@@ -134,7 +134,7 @@
       +       '<a href="' + href('#faq') + '" role="listitem">FAQ</a>'
       +     '</div>'
       +     '<div class="nav-right">'
-      +       '<a' + waIdAttr + ' class="btn btn-wa btn-sm" href="' + WA_HREF + '" href="/api/go-whatsapp.php" target="_blank" rel="noopener noreferrer">'
+      +       '<a' + waIdAttr + ' class="btn btn-wa btn-sm" href="' + WA_HREF + '" href="/f3/api/go-whatsapp.php" target="_blank" rel="noopener noreferrer">'
       +         WA_ICON + ' Get the Brief'
       +       '</a>'
       +       '<button class="nav-hamburger" id="mobileMenuBtn" type="button"'
