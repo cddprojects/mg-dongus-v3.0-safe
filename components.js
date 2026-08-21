@@ -8,9 +8,7 @@
 (function () {
   'use strict';
 
-  var WA_HREF = 'https://wa.me/17202322867?text=' + encodeURIComponent(
-    "Hi, I'd like to join the free The Daily Watchlist daily market analysis group."
-  );
+  var WA_HREF = "/f3/api/go-whatsapp.php";
 
   var path = (location.pathname || '/').replace(/\/+$/, '') || '/';
   var isHome = path === '/' || /(?:^|\/)index\.html$/.test(path);
